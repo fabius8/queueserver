@@ -7,6 +7,8 @@ class QueueInfo(models.Model):
     timestamp = models.CharField(max_length=100, verbose_name='timestamp')
     queue = models.IntegerField(verbose_name='queue', default=0)
     state = models.CharField(max_length=100, verbose_name='state')
+    def __str__(self):
+        return self.name
 
 class QueueInfoFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(lookup_expr='icontains')
