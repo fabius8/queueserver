@@ -1,0 +1,4 @@
+django
+django-tables2
+requests
+django-filter
