@@ -35,7 +35,7 @@ def index(request):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     for i in QueueInfo.objects.all():
         diff = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S') - datetime.strptime(i.timestamp, '%Y-%m-%d %H:%M:%S')
-        if diff.total_seconds() > 30:
+        if diff.total_seconds() > 60:
             print("name:",i.name," client timeout!")
             i.state = "TIMEOUT!"
             i.save()
